@@ -1,0 +1,9 @@
+@media (max-width: 600px) {
+  :root {
+    --navbar-height: 56px;
+  }
+  .navbar {
+    height: var(--navbar-height) !important;
+    padding: 0 12px !important;
+  }
+}

@@ -1,0 +1,5 @@
+.addEmp {
+  background-color: #f4f9ff; /* Light soft blue or use #f8f9fa for Bootstrap feel */
+  min-height: 100vh;
+  padding-bottom: 60px; /* to prevent content hiding behind fixed footer */
+}
