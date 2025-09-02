@@ -34,7 +34,7 @@ function Register() {
     }
 
     try {
-      const register = await registerUser(fullname, email, password);
+      const register = await registerUser(email, password);
       toast.success("Registration Successful!");
       setUser(register);
       navigate("/");
