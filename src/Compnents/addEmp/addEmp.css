@@ -1,5 +1,132 @@
+/* Root wrapper */
 .addEmp {
-  background-color: #f4f9ff; /* Light soft blue or use #f8f9fa for Bootstrap feel */
   min-height: 100vh;
-  padding-bottom: 60px; /* to prevent content hiding behind fixed footer */
+  background: linear-gradient(to right, #e0eafc, #cfdef3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 100px; /* offset for navbar */
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
+
+/* Form card container */
+.form-container {
+  width: 90%;
+  max-width: 700px;
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 12px;
+  padding: 40px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(6px);
+  margin-bottom: 40px;
+  transition: all 0.3s ease;
+}
+
+/* Heading */
+.form-container h3 {
+  text-align: center;
+  font-size: 26px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 30px;
+}
+
+/* Labels */
+.form-label {
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 6px;
+  display: block;
+}
+
+/* Inputs and Textareas */
+.form-control {
+  width: 100%;
+  padding: 13px 15px;
+  font-size: 15px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  margin-bottom: 18px;
+  transition: border-color 0.3s;
+}
+
+.form-control:focus {
+  border-color: #5b73e8;
+  outline: none;
+}
+
+textarea.form-control {
+  resize: vertical;
+  min-height: 80px;
+}
+
+/* Submit button */
+.btn-primary {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(90deg, #667eea, #764ba2);
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 10px;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(90deg, #5a67d8, #6b46c1);
+  transform: translateY(-1px);
+  opacity: 0.95;
+}
+
+/* Navigation link below the form */
+.form-container p {
+  text-align: center;
+  font-size: 14px;
+  color: #555;
+  margin-top: 20px;
+}
+
+.form-container p a {
+  color: #667eea;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.form-container p a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  .form-container {
+    padding: 30px 25px;
+  }
+
+  .form-container h3 {
+    font-size: 22px;
+  }
+
+  .btn-primary {
+    font-size: 15px;
+    padding: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .form-container {
+    padding: 25px 20px;
+  }
+
+  .form-control {
+    font-size: 14px;
+    padding: 11px 13px;
+  }
+
+  .btn-primary {
+    font-size: 14px;
+  }
+}
+

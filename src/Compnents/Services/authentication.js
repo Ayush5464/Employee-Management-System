@@ -28,7 +28,7 @@ export const registerUser = async (email, password) => {
             displayName: name,
         });
 
-        toast.success("User created successfully");
+        // toast.success("User created successfully");
         console.log("User:", user);
     } catch (error) {
         toast.error(error.message);

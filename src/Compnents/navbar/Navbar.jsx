@@ -1,15 +1,15 @@
 import { Link, useNavigate } from "react-router-dom";
 import "./navbar.css";
-// import { logoutUser } from "../services/authentication.js";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import toast from "react-hot-toast";
 import { mycontext } from "../../../context/Mycontaxt";
-import { User2 } from "lucide-react";
 import { logoutUser } from "../Services/authentication";
+import { Menu, X } from "lucide-react"; // Hamburger icon from Lucide
 
 export default function Navbar() {
   const { user, setUser } = useContext(mycontext);
   const navigate = useNavigate();
+  const [menuOpen, setMenuOpen] = useState(false); // Mobile toggle state
 
   const handleLogout = async () => {
     try {
@@ -23,10 +23,17 @@ export default function Navbar() {
     }
   };
 
+  const toggleMenu = () => {
+    setMenuOpen((prev) => !prev);
+  };
+
   return (
     <div className="navbar">
-      <h2 className="logo-cont">OptiStaff</h2>
-      <div className="links-cont">
+      <h2 className="logo-cont" onClick={() => navigate("/")}>
+        OptiStaff
+      </h2>
+
+      <div className={`links-cont ${menuOpen ? "show" : ""}`}>
         <ul className="link-list-cont">
           <li className="navabarBtn" onClick={() => navigate("/")}>
             Home
@@ -39,6 +46,7 @@ export default function Navbar() {
           </li>
         </ul>
       </div>
+
       <div className="user-cont">
         <div className="dropdown">
           <img
@@ -47,10 +55,9 @@ export default function Navbar() {
             src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJAVgEZdN3i24u5KqiegG9MCyzQPyAgKvmMw&s"
             alt="user-img"
           />
-          {/* authentication code. */}
           <ul className="dropdown-menu">
             {user ? (
-              <div>
+              <>
                 <li
                   className="dropdown-item"
                   onClick={handleLogout}
@@ -60,12 +67,12 @@ export default function Navbar() {
                 </li>
                 <li>
                   <Link className="dropdown-item" to="/help">
-                    help
+                    Help
                   </Link>
                 </li>
-              </div>
+              </>
             ) : (
-              <div>
+              <>
                 <li>
                   <Link className="dropdown-item" to="/login">
                     Login
@@ -76,10 +83,15 @@ export default function Navbar() {
                     Register
                   </Link>
                 </li>
-              </div>
+              </>
             )}
           </ul>
         </div>
+      </div>
+
+      {/* Hamburger Menu Icon */}
+      <div className="hamburger" onClick={toggleMenu}>
+        {menuOpen ? <X size={28} /> : <Menu size={28} />}
       </div>
     </div>
   );
