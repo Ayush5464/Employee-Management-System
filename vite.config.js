@@ -6,6 +6,9 @@ export default defineConfig({
   build: {
     outDir: 'dist'
   },
+  rollupOptions: {
+    external: ['firebase'] // Add any external modules here
+  },
   server: {
     // Optional: only needed for local dev fallback
     historyApiFallback: true
